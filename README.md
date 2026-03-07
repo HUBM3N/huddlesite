@@ -1,3 +1,3 @@
-https://hubm3n.github.io/huddlesite/
+https://hubm3n.github.io
 
 hi this is hud wordle made badly with claude ai teehee
