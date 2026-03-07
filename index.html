@@ -818,9 +818,21 @@ function updateAC() {
   const val = guessInput.value.trim().toLowerCase().replace(/[-\s]/g, '').replace(/u/g, 'ü');
   autocompleteList.innerHTML = '';
   acIndex = -1;
-    if (!val) return;
+  if (!val) {
+    guessInput.style.borderBottomLeftRadius = '';
+    guessInput.style.borderBottomRightRadius = '';
+    return;
+  }
 
-  ALL_HUD_NAMES.filter(n => n.toLowerCase().replace(/[-\s]/g, '').replace(/ü/g, 'u').includes(val.replace(/ü/g, 'u'))).slice(0,8).forEach(name => {
+  const matches = ALL_HUD_NAMES
+    .filter(n => n.toLowerCase().replace(/[-\s]/g, '').replace(/ü/g, 'u').includes(val.replace(/ü/g, 'u')))
+    .sort((a, b) => a.localeCompare(b))
+    .slice(0, 8);
+
+  guessInput.style.borderBottomLeftRadius = matches.length ? '0' : '';
+  guessInput.style.borderBottomRightRadius = matches.length ? '0' : '';
+
+  matches.forEach(name => {
     const item = document.createElement('div');
     item.className = 'ac-item';
     const lo = name.toLowerCase(), start = lo.indexOf(val);
@@ -830,7 +842,6 @@ function updateAC() {
     item.addEventListener('mousedown', e => { e.preventDefault(); guessInput.value = name; autocompleteList.innerHTML = ''; });
     autocompleteList.appendChild(item);
   });
-  
 }
 
 function handleKey(e) {
@@ -846,9 +857,18 @@ function handleKey(e) {
     items.forEach((it,i) => it.classList.toggle('active', i===acIndex));
     if (acIndex >= 0 && items[acIndex]) guessInput.value = items[acIndex].textContent;
   } else if (e.key === 'Enter') {
-    if (acIndex >= 0 && items[acIndex]) { guessInput.value = items[acIndex].textContent; autocompleteList.innerHTML = ''; }
-    else submitGuess();
-  } else if (e.key === 'Escape') { autocompleteList.innerHTML = ''; acIndex = -1; }
+    if (acIndex >= 0 && items[acIndex]) {
+      guessInput.value = items[acIndex].textContent;
+      autocompleteList.innerHTML = '';
+    } else if (items.length > 0) {
+      const val = guessInput.value.trim();
+      const exactMatch = ALL_HUD_NAMES.find(n => n.toLowerCase() === val.toLowerCase());
+      guessInput.value = exactMatch || items[0].textContent;
+      autocompleteList.innerHTML = '';
+      submitGuess();
+    } else
+      submitGuess();
+   } else if (e.key === 'Escape') { autocompleteList.innerHTML = ''; acIndex = -1; }
 }
 
 document.addEventListener('click', e => {
