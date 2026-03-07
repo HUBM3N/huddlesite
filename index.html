@@ -751,6 +751,30 @@ function getHudUrl(hud) {
   return hud.url;
 }
 
+function compressImage(url, quality, callback) {
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = () => {
+    const canvas = document.createElement('canvas');
+    // Scale down to max 960px wide
+    const scale = Math.min(1, 960 / img.naturalWidth);
+    canvas.width  = img.naturalWidth  * scale;
+    canvas.height = img.naturalHeight * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    callback(canvas.toDataURL('image/jpeg', quality));
+  };
+  img.onerror = () => callback(url); // fall back to original if it fails
+  img.src = url;
+}
+
+function loadProgressive(imgEl, bgEl, url) {
+  compressImage(url, 0.8, (compressed) => {
+    imgEl.src = compressed;
+    if (bgEl) bgEl.src = compressed;
+  });
+}
+
 function init() {
   state.hudIndex = getNextHudIndex();
   state.attempts = 0;
@@ -761,8 +785,7 @@ function init() {
   const hud = HUDS[state.hudIndex];
   const url = getHudUrl(hud);
   hudImg.onerror = () => generateFallback(hud.name);
-  hudImg.src = url;
-  document.getElementById('hud-bg').src = url;
+  loadProgressive(hudImg, document.getElementById('hud-bg'), url);
 
   blurOverlay.style.transition = '';
   updateBlur();
@@ -1013,8 +1036,8 @@ function advanceHud() {
   hudImg.src = '';
   document.getElementById('hud-bg').src = '';
   setTimeout(() => {
-  hudImg.src = getHudUrl(hud);
-  document.getElementById('hud-bg').src = getHudUrl(hud);
+    const url = getHudUrl(hud);
+    loadProgressive(hudImg, document.getElementById('hud-bg'), url);
   }, 150);
   guessInput.disabled = false; submitBtn.disabled = false;
   guessInput.value = ''; autocompleteList.innerHTML = '';
