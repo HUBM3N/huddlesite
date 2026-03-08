@@ -7,7 +7,7 @@ const HUDS = [
   { name: "ahud",       url: ["https://static.tf2huds.dev/ahud/img/UDuTSgV.jpg","https://f005.backblazeb2.com/file/screenshotshuddle/a3.png","https://f005.backblazeb2.com/file/screenshotshuddle/a.png","https://f005.backblazeb2.com/file/screenshotshuddle/a2.png"],                                 link: "https://tf2huds.dev/hud/ahud",       author: "Nokk" },
   { name: "PV Hud",     url: ["https://static.tf2huds.dev/PV-Hud/img/RtcSkJZ.jpg","https://f005.backblazeb2.com/file/screenshotshuddle/pv2.png","https://f005.backblazeb2.com/file/screenshotshuddle/pv3.png","https://f005.backblazeb2.com/file/screenshotshuddle/pv.png"],                              link: "https://tf2huds.dev/hud/PV-Hud",     author: "povohat" },
   { name: "7HUD",       url: "https://static.tf2huds.dev/7HUD/img/yxZKCWZ.jpg",   link: "https://tf2huds.dev/hud/7HUD",       author: "seth" },
-  { name: "ZeesHUD",    url: ["https://static.tf2huds.dev/ZeesHUD/img/9niNBz2.jpg","https://f005.backblazeb2.com/file/screenshotshuddle/zees.png"],                link: "https://tf2huds.dev/hud/ZeesHUD",    author: "Zeesastrous" },
+  { name: "ZeesHUD",    url: ["https://static.tf2huds.dev/ZeesHUD/img/9niNBz2.jpg","https://f005.backblazeb2.com/file/screenshotshuddle/zees.png","https://f005.backblazeb2.com/file/screenshotshuddle/zees2.png"],                link: "https://tf2huds.dev/hud/ZeesHUD",    author: "Zeesastrous" },
   { name: "budhud",     url: ["https://static.tf2huds.dev/budhud/img/CiAYtST.png","https://f005.backblazeb2.com/file/screenshotshuddle/bud4.png","https://f005.backblazeb2.com/file/screenshotshuddle/bud3.png","https://f005.backblazeb2.com/file/screenshotshuddle/bud.png","https://f005.backblazeb2.com/file/screenshotshuddle/bud2.png"],                               link: "https://tf2huds.dev/hud/budhud",     author: "Whisker" },
   { name: "HExHUD",     url: ["https://static.tf2huds.dev/HExHUD/img/25_Health_Ammo.jpg","https://f005.backblazeb2.com/file/screenshotshuddle/hex.png"],                             link: "https://tf2huds.dev/hud/HExHUD",     author: "Hypnotize" },
   { name: "KBNHud",     url: ["https://static.tf2huds.dev/KBNHud/img/6%20-%20Player%20Panels.png","https://f005.backblazeb2.com/file/screenshotshuddle/kbn2.png","https://f005.backblazeb2.com/file/screenshotshuddle/kbn.png"],                               link: "https://tf2huds.dev/hud/KBNHud",     author: "Jötunn" },
@@ -41,7 +41,7 @@ const HUDS = [
   {name:"bwhud",url:"https://static.tf2huds.dev/bwhud/img/sJ8i6w6.jpg",link:"https://tf2huds.dev/hud/bwhud",author:"wonk"},
   {name:"TF2HudPlus",url:"https://static.tf2huds.dev/TF2HudPlus/img/ggZ3sXm.jpg",link:"https://tf2huds.dev/hud/TF2HudPlus",author:"Snowshoe"},
   {name:"dosHUD",url:"https://static.tf2huds.dev/dosHUD/img/88563602-118eda80-d02a-11ea-9348-8e7c28331a5c.png",link:"https://tf2huds.dev/hud/dosHUD",author:"Lavendar"},
-  {name:"quakehud",url:"https://static.tf2huds.dev/quakehud/img/B1vW7Mp.png",link:"https://tf2huds.dev/hud/quakehud",author:"quickkennedy"},
+  {name:"quakehud",url:["https://static.tf2huds.dev/quakehud/img/B1vW7Mp.png","https://f005.backblazeb2.com/file/screenshotshuddle/quake.png"],link:"https://tf2huds.dev/hud/quakehud",author:"quickkennedy"},
   {name:"Half-Life 2 HUD",url:"https://static.tf2huds.dev/Half-Life-2-HUD/img/lpXGxQY.png",link:"https://tf2huds.dev/hud/Half-Life-2-HUD",author:"Village Green Preserver"},
   {name:"ColourHUD",url:"https://static.tf2huds.dev/ColourHUD/img/12.png",link:"https://tf2huds.dev/hud/ColourHUD",author:"MrColour"},
   {name:"digithud",url:"https://static.tf2huds.dev/digithud/img/uGXVhej.jpg",link:"https://tf2huds.dev/hud/digithud",author:"digitdaily"},
@@ -283,4 +283,5 @@ const HUDS = [
   {name:"rsEVILo",url:["https://f005.backblazeb2.com/file/screenshotshuddle/rsevilo.png"],link:"https://github.com/HUBM3N/hubm3n.github.io/blob/main/hudfiles/rsevilo.rar",author:"idk"},
   {name:"koymu hud",url:["https://f005.backblazeb2.com/file/screenshotshuddle/koymu.png","https://f005.backblazeb2.com/file/screenshotshuddle/koymu2.png"],link:"https://drive.google.com/drive/folders/1klbhT9iF6VlUW3X20PCrWWazfjIRKXGL?usp=drive_link",author:"koymu"},
   {name:"hionhud",url:["https://f005.backblazeb2.com/file/screenshotshuddle/hion.png","https://f005.backblazeb2.com/file/screenshotshuddle/hion2.png"],link:"https://github.com/HUBM3N/hubm3n.github.io/blob/main/hudfiles/(Copy) zaynedit.rar",author:"hion"},
+  {name:"hud11 edit",url:["https://f005.backblazeb2.com/file/screenshotshuddle/hud11.png","https://f005.backblazeb2.com/file/screenshotshuddle/hud112.png"],link:"https://github.com/RussTIB/Hud11_RussEdit",author:"russ"},
 ];
